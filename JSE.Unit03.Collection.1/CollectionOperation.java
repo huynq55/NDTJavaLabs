@@ -6,7 +6,9 @@ import java.util.Arrays;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.IntSummaryStatistics;
-import java.util.Consumer;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.Scanner;
 
 public class CollectionOperation {
 	
@@ -49,16 +51,29 @@ public class CollectionOperation {
 		System.out.println("sum: " + sum + " sum1: " + sum1);
 		
 		
-		
+		Predicate<Integer> tester = v -> v > 5;
 		Consumer<Integer> myConsumer = n -> {
 			System.out.println("User input value = " + n);
 			if (n < 5) {
-				System.out.println("
-				
+				System.out.println("Invalid value!");
+				return;
 			}
 			
+			listOfIntegers.add(n);
+			System.out.println("values: ");
+			listOfIntegers.forEach(x -> System.out.print(x + " - "));
 			
-			
+		};
+		myConsumer.accept(12);
+		
+		Scanner scanner = new Scanner(System.in);
+		while(true) {
+			System.out.print("Please input a number: ");
+			Integer value = scanner.nextInt();
+			if (value < 0) break;
+			if (tester.test(value)) myConsumer.accept(value);
+			System.out.println();
 		}
+		
 	}
 }
