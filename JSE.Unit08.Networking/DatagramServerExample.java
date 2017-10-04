@@ -17,7 +17,7 @@ public class DatagramServerExample implements Runnable {
     System.out.println("Thread da duoc chay");
     
     try {
-      byte[] bytes = new byte[8];
+      byte[] bytes = new byte[25];
       DatagramPacket packet = new DatagramPacket(bytes, bytes.length);
       this.socket.receive(packet);
       System.out.println("From Client: " + new String(packet.getData(), 0, packet.getLength()));
