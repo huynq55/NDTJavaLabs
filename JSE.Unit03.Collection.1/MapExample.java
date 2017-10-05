@@ -3,7 +3,7 @@ import java.util.Hashtable;
 
 public class MapExample {
 	public static void main(String[] args) {
-		Map<teger, String> map = new Hashtable<Integer, String>();
+		Map<Integer, String> map = new Hashtable<Integer, String>();
 		// Hashtable<Integer, String> map = new Hashtable<Integer, String>();
 		map.put(3, "Nguyen Van A");
 		map.put(1, "Nguyen Van B");
