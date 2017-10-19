@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class TreeNode<T> {
 
   private T value;
@@ -40,8 +43,18 @@ public class TreeNode<T> {
       }
       temp.nextSibling = child;
     }
+  }
 
+  public TreeNode<T> addChild(T value) {
+    TreeNode<T> node = new TreeNode<T>(value);
+    addChild(node);
+    return node;
+  }
 
+  public List<T> chonloc(TreeNodeFilter<T> filter) {
+    List<T> list = new ArrayList<T>();
+    TreeNodeUtils.visit(this, filter, list);
+    return list;
   }
 
 }
