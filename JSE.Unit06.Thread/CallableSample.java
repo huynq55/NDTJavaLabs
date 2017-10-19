@@ -13,6 +13,7 @@ public class CallableSample implements Callable<Integer> {
   private Tmp totalT2 = new Tmp();
 
   class Tmp {
+
     int number = 0;
 
     public void tang(int number) {
@@ -28,14 +29,15 @@ public class CallableSample implements Callable<Integer> {
       return this.get();
     }
   }
+
   @Override
-  public synchronized Integer call() throws Exception {
-//    lock.lock();
+  public Integer call() throws Exception {
+    lock.lock();
 
     IntStream.range(0, 10).forEach(number -> {
       System.out.println(Thread.currentThread().getName() + " - object " + this +
-//          " is running " + total.addAndGet(number));
-          " is running " + totalT2.addAndGet(number));
+          " is running " + total.addAndGet(number));
+//          " is running " + totalT2.addAndGet(number));
 
       Random random = new Random();
       LongStream longStream = random.longs(100, 1000);
@@ -44,7 +46,7 @@ public class CallableSample implements Callable<Integer> {
 //    while (total.get() < 1000000000) {
 //      System.out.println(total.incrementAndGet());
 //    }
-//    lock.unlock();
+    lock.unlock();
     return total.get();
   }
 }
