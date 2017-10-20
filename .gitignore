@@ -2,3 +2,4 @@
 .idea/
 out/
 *.iml
+servlet-sample/target/
