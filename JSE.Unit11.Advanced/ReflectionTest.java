@@ -10,6 +10,16 @@ class TotalCaculator {
   private int getTotal(int value) {
     return TOTAL + value;
   }
+
+  @Test(34)
+  long getTotal(short value) {
+    return TOTAL + value;
+  }
+
+  @Test(100)
+  private void print(short value) {
+    System.out.println("gia tri them vao la: " + value);
+  }
 }
 
 public class ReflectionTest {
