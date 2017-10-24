@@ -3,3 +3,5 @@
 out/
 *.iml
 servlet-sample/target/
+sampledb/
+derby.log
