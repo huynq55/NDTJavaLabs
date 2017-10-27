@@ -16,7 +16,7 @@ public class InsertDataExample {
           .getConnection("jdbc:derby:" + file.getAbsolutePath() + ";create=true");
       statement = connection.createStatement();
 
-      statement.execute("insert into student (name, age) values ('Tran Van B', 20)");
+      statement.execute("insert into student (name, age) values ('Nguyen Quang Huy', 20)");
       statement.execute("insert into student (name, age) values ('Nguyen Van C', 56)");
     } catch (SQLException e) {
       e.printStackTrace();
