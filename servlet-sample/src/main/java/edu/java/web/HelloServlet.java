@@ -13,5 +13,12 @@ public class HelloServlet extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
     resp.getWriter().println("Hello Ha Noi Java Clazz");
+    resp.getWriter().println("Hello " + req.getParameter("user"));
+  }
+
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+      throws ServletException, IOException {
+    resp.getWriter().println("Hello " + req.getParameter("user"));
   }
 }
