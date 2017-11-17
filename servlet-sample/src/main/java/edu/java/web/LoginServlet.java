@@ -16,12 +16,17 @@ public class LoginServlet extends HttpServlet {
       throws ServletException, IOException {
     String username = req.getParameter("j_username");
     String password = req.getParameter("j_password");
+    try {
+      req.login(username, password);
 
-    req.login(username, password);
+      RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/hello.jsp");
+      req.setAttribute("say", "Hi Ha Noi!");
+      dispatcher.forward(req, resp);
 
-    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/html");
-    dispatcher.forward(req, resp);
-
-    resp.getWriter().println("login successful");
+      resp.getWriter().println("login successful");
+    } catch (Exception e){
+      resp.getWriter().println("Sorry! Login failed!");
+      e.printStackTrace(resp.getWriter());
+    }
   }
 }
