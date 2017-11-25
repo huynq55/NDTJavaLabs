@@ -1,6 +1,6 @@
 package edu.java.spring;
 
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
