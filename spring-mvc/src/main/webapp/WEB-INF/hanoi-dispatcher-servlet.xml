@@ -12,6 +12,8 @@
 
   <context:component-scan base-package="edu.java.spring.controller"/>
 
+  <context:component-scan base-package="edu.java.spring.dao.impl"/>
+
   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="suffix" value=".jsp"/>
   </bean>
@@ -21,7 +23,32 @@
   <mvc:resources mapping="/resources/**" location="/resources/"/>
 
   <bean class="org.springframework.context.support.ResourceBundleMessageSource" id="messageSource">
-    <property name="basename" value="messages" />
+    <property name="basename" value="messages"/>
+  </bean>
+
+  <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+    <property name="url" value="jdbc:derby:C:/Java/sampledb;create=true"/>
+    <property name="username" value=""/>
+    <property name="password" value=""/>
+  </bean>
+
+  <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    <property name="order" value="1"/>
+    <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+  </bean>
+
+  <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+    <property name="definitions">
+      <list>
+        <value>/tiles/definitions.xml</value>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="multipartResolver"
+    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <property name="maxUploadSize" value="100000"/>
   </bean>
 
 </beans>

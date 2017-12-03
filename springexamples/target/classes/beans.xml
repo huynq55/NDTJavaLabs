@@ -32,6 +32,7 @@
 
   <bean id="helloWorld" class="edu.java.spring.HelloWorld">
     <property name="message" value="HelloWorld message created from beans.xml"/>
+    <property name="testAbc" value="org.apache.log4j.Logger1"/>
   </bean>
 
   <bean id="clazz1" class="edu.java.spring.HelloClazz">
